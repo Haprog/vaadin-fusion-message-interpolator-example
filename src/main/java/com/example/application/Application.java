@@ -16,7 +16,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  */
 @SpringBootApplication
 @Theme(value = "testvalidation")
-@PWA(name = "Test Validation", shortName = "Test Validation", offlineResources = {"images/logo.png"})
+// @PWA(name = "Test Validation", shortName = "Test Validation", offlineResources = {"images/logo.png"})
 public class Application extends SpringBootServletInitializer implements AppShellConfigurator {
 
     public static void main(String[] args) {

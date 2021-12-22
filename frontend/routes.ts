@@ -1,5 +1,4 @@
 import { Route } from '@vaadin/router';
-import './views/helloworld/hello-world-view';
 import './views/main-layout';
 
 export type ViewRoute = Route & {
@@ -12,23 +11,17 @@ export const views: ViewRoute[] = [
   // place routes below (more info https://vaadin.com/docs/latest/fusion/routing/overview)
   {
     path: '',
-    component: 'hello-world-view',
     icon: '',
     title: '',
+    redirect: 'validation-test-form'
   },
   {
-    path: 'hello',
-    component: 'hello-world-view',
-    icon: 'la la-globe',
-    title: 'Hello World',
-  },
-  {
-    path: 'about',
-    component: 'about-view',
-    icon: 'la la-file',
-    title: 'About',
+    path: 'validation-test-form',
+    component: 'validation-test-form-view',
+    icon: 'la la-wpforms',
+    title: 'Validation Test Form',
     action: async (_context, _command) => {
-      await import('./views/about/about-view');
+      await import('./views/validation-test-form/validation-test-form-view');
       return;
     },
   },
@@ -49,26 +42,6 @@ export const views: ViewRoute[] = [
     title: 'Address Form',
     action: async (_context, _command) => {
       await import('./views/addressform/address-form-view');
-      return;
-    },
-  },
-  {
-    path: 'credit-card-form',
-    component: 'credit-card-form-view',
-    icon: '',
-    title: 'Credit Card Form',
-    action: async (_context, _command) => {
-      await import('./views/creditcardform/credit-card-form-view');
-      return;
-    },
-  },
-  {
-    path: 'checkout-form',
-    component: 'checkout-form-view',
-    icon: 'la la-credit-card',
-    title: 'Checkout Form',
-    action: async (_context, _command) => {
-      await import('./views/checkoutform/checkout-form-view');
       return;
     },
   },

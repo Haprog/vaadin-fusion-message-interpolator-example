@@ -9,6 +9,7 @@
     "inlineSources": true,
     "module": "esNext",
     "target": "es2019",
+    "lib": ["DOM", "ES2020"],
     "moduleResolution": "node",
     "strict": true,
     "noFallthroughCasesInSwitch": true,
@@ -23,7 +24,16 @@
       "Frontend/*": [
         "*"
       ]
-    }
+    },
+    "plugins": [
+      {
+        "name": "ts-lit-plugin",
+        "strict": false,
+        "rules": {
+          "no-unknown-attribute": "off"
+        }
+      }
+    ]
   },
   "include": [
     "frontend/**/*.ts",
