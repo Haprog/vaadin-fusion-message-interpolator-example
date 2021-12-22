@@ -1,7 +1,29 @@
-# Custom project from start.vaadin.com
+# Validation Message Interpolation Example
 
-This project can be used as a starting point to create your own Vaadin application with Spring Boot.
-It contains all the necessary configuration and some placeholder files to get you started.
+Example project to test interpolateMessageCallback API (`@vaadin/form` 0.0.16+).
+
+## Files of interest:
+
+- `src/main/java/com/example/application/data/entity/ValidationTestEntity.java` (for validation annotation configuration, e.g. custom messages)
+- `frontend/index.ts` (setup of Binder.interpolateMessageCallback and configuration of message localizations)
+- `frontend/localization.ts` (custom MessageInterpolator implementation for easy use of interpolateMessageCallback API with additional features)
+
+## Initial setup to use locally linked version of @vaadin/form
+
+1. Make sure you have npm and pnpm installed globally 
+1. Have a local clone of `fusion` repository ready and checked out from tag `0.0.16` (or up to date `main` branch).
+1. In fusion repo:
+   1. Clear `node_modules` and package lock files from `fusion`.
+   1. Build and link `form` package to pnpm global packages:  
+      `npm i && npm run build && pushd packages/ts/form && pnpm link --global && popd`
+1. In this project repo:
+   1. First try to start the project using `./mvnw` to let Vaadin generate frontend stuff. Then exit the app.
+   1. Link `form` package from global pnpm packages `pnpm link --global @vaadin/form`
+   1. Run normally `./mvnw` and it should be using your local version of `@vaadin/form`.
+1. (optional) If you make changes to the `form` package in your local clone of the `fusion` repo you need to rebuild it to make the changes available for projects using the locally linked version. In this case it should be enough to just run `npm run build` in `fusion` repo.
+
+
+
 
 ## Running the application
 
