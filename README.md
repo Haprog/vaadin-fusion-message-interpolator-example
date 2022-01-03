@@ -1,6 +1,6 @@
 # Validation Message Interpolation Example
 
-Example project to test interpolateMessageCallback API (`@vaadin/form` 0.0.16+).
+Example project to test `interpolateMessageCallback` API (`@vaadin/form` 0.0.16+).
 
 ## Files of interest:
 
@@ -9,6 +9,8 @@ Example project to test interpolateMessageCallback API (`@vaadin/form` 0.0.16+).
 - `frontend/localization.ts` (custom MessageInterpolator implementation for easy use of interpolateMessageCallback API with additional features)
 
 ## Initial setup to use locally linked version of @vaadin/form
+
+**NOTE: This step is NOT NEEDED anymore when using V23.0.0.alpha1 (or later)**
 
 1. Make sure you have npm and pnpm installed globally 
 1. Have a local clone of `fusion` repository ready and checked out from tag `0.0.16` (or up to date `main` branch).
