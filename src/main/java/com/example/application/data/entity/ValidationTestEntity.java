@@ -2,13 +2,36 @@ package com.example.application.data.entity;
 
 import com.example.application.data.AbstractEntity;
 import com.vaadin.fusion.Nonnull;
+
+import lombok.Data;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
+import javax.validation.constraints.AssertFalse;
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Negative;
+import javax.validation.constraints.NegativeOrZero;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 
 @Entity
+@Data
 public class ValidationTestEntity extends AbstractEntity {
 
     @Nonnull
@@ -33,47 +56,67 @@ public class ValidationTestEntity extends AbstractEntity {
     @Email
     private String email;
 
-    public String getMinMaxLengthString() {
-        return minMaxLengthString;
-    }
-    public void setMinMaxLengthString(String minMaxLengthString) {
-        this.minMaxLengthString = minMaxLengthString;
-    }
-    public String getMinMaxLengthCustomMessage() {
-        return minMaxLengthCustomMessage;
-    }
-    public void setMinMaxLengthCustomMessage(String minMaxLengthCustomMessage) {
-        this.minMaxLengthCustomMessage = minMaxLengthCustomMessage;
-    }
-    public String getMinMaxLengthCustomMessage2() {
-        return minMaxLengthCustomMessage2;
-    }
-    public void setMinMaxLengthCustomMessage2(String minMaxLengthCustomMessage2) {
-        this.minMaxLengthCustomMessage2 = minMaxLengthCustomMessage2;
-    }
-    public String getMinLengthCustomMessage() {
-        return minLengthCustomMessage;
-    }
-    public void setMinLengthCustomMessage(String minLengthCustomMessage) {
-        this.minLengthCustomMessage = minLengthCustomMessage;
-    }
-    public String getNotBlankString() {
-        return notBlankString;
-    }
-    public void setNotBlankString(String notBlankString) {
-        this.notBlankString = notBlankString;
-    }
-    public String getNotEmptyString() {
-        return notEmptyString;
-    }
-    public void setNotEmptyString(String notEmptyString) {
-        this.notEmptyString = notEmptyString;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    @Null
+    private String testNull;
+    @NotNull
+    private String testNotNull;
+    @Nonnull
+    @AssertTrue
+    private boolean testAssertTrue;
+    @Nonnull
+    @AssertFalse
+    private boolean testAssertFalse;
+    @Nonnull
+    @Min(5)
+    private Integer testMin;
+    @Nonnull
+    @Max(-4)
+    private Integer testMax;
+    @Nonnull
+    @DecimalMin("5.5")
+    private BigDecimal testDecimalMin;
+    @Nonnull
+    @DecimalMax("-4.5")
+    private BigDecimal testDecimalMax;
+    @Nonnull
+    @Negative
+    private Integer testNegative;
+    @Nonnull
+    @NegativeOrZero
+    private Integer testNegativeOrZero;
+    @Nonnull
+    @Positive
+    private Integer testPositive;
+    @Nonnull
+    @PositiveOrZero
+    private Integer testPositiveOrZero;
+    @Nonnull
+    @Size(min = 5)
+    private String testSize1;
+    @Nonnull
+    @Size(max = 6)
+    private String testSize2;
+    @Nonnull
+    @Digits(integer = 2, fraction = 2)
+    private BigDecimal testDigits;
+    @Nonnull
+    @Past
+    private LocalDate testPast;
+    @Nonnull
+    @Future
+    private String testFuture;
+    @Nonnull
+    @Pattern(regexp = "\\d{3,5}")
+    private String testPattern;
+    @Nonnull
+    @NotEmpty
+    private String testNotEmpty;
+    @Nonnull
+    @NotBlank
+    private String testNotBlank;
+    @Nonnull
+    @Email
+    private String testEmail;
+
 
 }
