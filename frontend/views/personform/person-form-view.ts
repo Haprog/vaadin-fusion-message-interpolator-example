@@ -1,20 +1,20 @@
 import { showNotification } from '@vaadin/flow-frontend/a-notification';
 import { Binder, field } from '@vaadin/form';
 import { EndpointError } from '@vaadin/fusion-frontend';
-import '@vaadin/vaadin-button';
-import '@vaadin/vaadin-combo-box';
-import type { ComboBoxElement } from '@vaadin/vaadin-combo-box/vaadin-combo-box';
-import '@vaadin/vaadin-custom-field';
-import '@vaadin/vaadin-date-picker';
-import '@vaadin/vaadin-form-layout';
-import '@vaadin/vaadin-item';
-import '@vaadin/vaadin-notification';
-import '@vaadin/vaadin-ordered-layout/vaadin-horizontal-layout';
-import '@vaadin/vaadin-radio-button';
-import '@vaadin/vaadin-radio-button/vaadin-radio-group';
-import '@vaadin/vaadin-text-field';
-import '@vaadin/vaadin-text-field/vaadin-email-field';
-import '@vaadin/vaadin-text-field/vaadin-number-field';
+import '@vaadin/button';
+import '@vaadin/combo-box';
+import type { ComboBox } from '@vaadin/combo-box';
+import '@vaadin/custom-field';
+import '@vaadin/date-picker';
+import '@vaadin/form-layout';
+import '@vaadin/item';
+import '@vaadin/notification';
+import '@vaadin/horizontal-layout';
+import '@vaadin/radio-group';
+import '@vaadin/radio-group/vaadin-radio-button';
+import '@vaadin/text-field';
+import '@vaadin/email-field';
+import '@vaadin/number-field';
 import SamplePersonModel from 'Frontend/generated/com/example/application/data/entity/SamplePersonModel';
 import * as SamplePersonEndpoint from 'Frontend/generated/SamplePersonEndpoint';
 import { html, PropertyValues } from 'lit';
@@ -24,7 +24,7 @@ import { View } from '../view';
 @customElement('person-form-view')
 export class PersonFormViewElement extends View {
   @query('#countryCode')
-  private countryCode!: ComboBoxElement | null;
+  private countryCode!: ComboBox | null;
 
   private binder = new Binder(this, SamplePersonModel);
 

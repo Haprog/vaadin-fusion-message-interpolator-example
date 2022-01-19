@@ -1,13 +1,13 @@
 import { showNotification } from '@vaadin/flow-frontend/a-notification';
 import { Binder, field } from '@vaadin/form';
 import { EndpointError } from '@vaadin/fusion-frontend';
-import '@vaadin/vaadin-button';
-import '@vaadin/vaadin-combo-box';
-import type { ComboBoxElement } from '@vaadin/vaadin-combo-box/vaadin-combo-box';
-import '@vaadin/vaadin-form-layout';
-import '@vaadin/vaadin-ordered-layout/vaadin-horizontal-layout';
-import '@vaadin/vaadin-text-field';
-import '@vaadin/vaadin-text-field/vaadin-number-field';
+import '@vaadin/button';
+import '@vaadin/combo-box';
+import type { ComboBox } from '@vaadin/combo-box';
+import '@vaadin/form-layout';
+import '@vaadin/horizontal-layout';
+import '@vaadin/text-field';
+import '@vaadin/number-field';
 import SampleAddressModel from 'Frontend/generated/com/example/application/data/entity/SampleAddressModel';
 import * as SampleAddressEndpoint from 'Frontend/generated/SampleAddressEndpoint';
 import { html, PropertyValues } from 'lit';
@@ -17,9 +17,9 @@ import { View } from '../view';
 @customElement('address-form-view')
 export class AddressFormView extends View {
   @query('#state')
-  private state!: ComboBoxElement | null;
+  private state!: ComboBox | null;
   @query('#country')
-  private country!: ComboBoxElement | null;
+  private country!: ComboBox | null;
 
   private binder = new Binder(this, SampleAddressModel);
 

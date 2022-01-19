@@ -1,11 +1,11 @@
 import { showNotification } from '@vaadin/flow-frontend/a-notification';
 import { Binder, field } from '@vaadin/form';
 import { EndpointError } from '@vaadin/fusion-frontend';
-import '@vaadin/vaadin-button';
-import '@vaadin/vaadin-ordered-layout/vaadin-horizontal-layout';
-import '@vaadin/vaadin-ordered-layout/vaadin-vertical-layout';
-import '@vaadin/vaadin-text-field/vaadin-text-field';
-import '@vaadin/vaadin-text-field/vaadin-email-field';
+import '@vaadin/button';
+import '@vaadin/horizontal-layout';
+import '@vaadin/vertical-layout';
+import '@vaadin/text-field';
+import '@vaadin/email-field';
 import ValidationTestEntityModel from 'Frontend/generated/com/example/application/data/entity/ValidationTestEntityModel';
 import * as ValidationTestEndpoint from 'Frontend/generated/ValidationTestEndpoint';
 import { html } from 'lit';

@@ -1,10 +1,10 @@
 import '@vaadin/vaadin-app-layout';
-import { AppLayoutElement } from '@vaadin/vaadin-app-layout';
-import '@vaadin/vaadin-app-layout/vaadin-drawer-toggle';
-import '@vaadin/vaadin-avatar/vaadin-avatar';
-import '@vaadin/vaadin-context-menu';
-import '@vaadin/vaadin-tabs';
-import '@vaadin/vaadin-tabs/vaadin-tab';
+import { AppLayout } from '@vaadin/app-layout';
+import '@vaadin/app-layout/vaadin-drawer-toggle';
+import '@vaadin/avatar';
+import '@vaadin/context-menu';
+import '@vaadin/tabs';
+import '@vaadin/tabs/vaadin-tab';
 import '@vaadin/vaadin-template-renderer';
 import { html } from 'lit';
 import { customElement } from 'lit/decorators.js';
@@ -62,7 +62,7 @@ export class MainLayout extends Layout {
     this.reaction(
       () => appStore.location,
       () => {
-        AppLayoutElement.dispatchCloseOverlayDrawerEvent();
+        AppLayout.dispatchCloseOverlayDrawerEvent();
       }
     );
   }
