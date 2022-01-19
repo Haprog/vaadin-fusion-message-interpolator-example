@@ -11,7 +11,7 @@
 
     <properties>
         <java.version>17</java.version>
-        <vaadin.version>23.0.0.alpha1</vaadin.version>
+        <vaadin.version>23.0.0.alpha2</vaadin.version>
     </properties>
 
     <parent>
@@ -144,6 +144,13 @@
             <artifactId>webdrivermanager</artifactId>
             <version>4.4.0</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
