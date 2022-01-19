@@ -62,10 +62,7 @@ const interpolateSize: MessageProcessor = (message, validator, binderNode) => {
 
 // Interpolation: {fieldValue} = binderNode.value
 const interpolateFieldValue: MessageProcessor = (message, validator, binderNode) => {
-  if (validator instanceof Size) {
-    message = message.replace(/(?<!\\){size}/g, String(binderNode.value.length));
-  }
-  return message;
+  return message.replace(/(?<!\\){fieldValue}/g, String(binderNode.value));
 };
 
 // Interpolate remaining placeholders from validator properties (results in "undefined" if property not defined)
