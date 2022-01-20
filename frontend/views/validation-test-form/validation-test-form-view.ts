@@ -49,7 +49,9 @@ export class ValidationTestFormView extends View {
         <vaadin-text-field label="testMin" ${field(this.binder.model.testMin)}></vaadin-text-field>
         <vaadin-text-field label="testMax" ${field(this.binder.model.testMax)}></vaadin-text-field>
         <vaadin-text-field label="testDecimalMin" ${field(this.binder.model.testDecimalMin)}></vaadin-text-field>
+        <vaadin-text-field label="testDecimalMinExclusive" ${field(this.binder.model.testDecimalMinExclusive)}></vaadin-text-field>
         <vaadin-text-field label="testDecimalMax" ${field(this.binder.model.testDecimalMax)}></vaadin-text-field>
+        <vaadin-text-field label="testDecimalMaxExclusive" ${field(this.binder.model.testDecimalMaxExclusive)}></vaadin-text-field>
         <vaadin-text-field label="testNegative" ${field(this.binder.model.testNegative)}></vaadin-text-field>
         <vaadin-text-field label="testNegativeOrZero" ${field(this.binder.model.testNegativeOrZero)}></vaadin-text-field>
         <vaadin-text-field label="testPositive" ${field(this.binder.model.testPositive)}></vaadin-text-field>

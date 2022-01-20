@@ -42,8 +42,14 @@ Binder.interpolateMessageCallback = (message, validator, binderNode) => {
     return get(message, values);
   }
 
+  let messagePropertyId = getMessagePropertyId(validator);
+
+  // Special case for DecimalMin and DecimalMax validators to use different message based on "inclusive" property
+  if (['validationError.DecimalMin', 'validationError.DecimalMax'].includes(messagePropertyId)) {
+    messagePropertyId += (validator as any).inclusive ? '.inclusive' : '.exclusive';
+  }
+
   // Try to find a default translation for the specific type of validator
-  const messagePropertyId = getMessagePropertyId(validator);
   if (translateConfig.lookup(messagePropertyId, translateConfig)) {
     return get(messagePropertyId, values);
   }

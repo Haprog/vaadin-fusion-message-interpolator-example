@@ -64,11 +64,17 @@ public class ValidationTestEntity extends AbstractEntity {
     @Max(-4)
     private Integer testMax;
     @Nonnull
-    @DecimalMin("5.5")
+    @DecimalMin(value = "5.5", inclusive = true)
     private BigDecimal testDecimalMin;
     @Nonnull
-    @DecimalMax("-4.5")
+    @DecimalMin(value = "5.5", inclusive = false)
+    private BigDecimal testDecimalMinExclusive;
+    @Nonnull
+    @DecimalMax(value = "-4.5", inclusive = true)
     private BigDecimal testDecimalMax;
+    @Nonnull
+    @DecimalMax(value = "-4.5", inclusive = false)
+    private BigDecimal testDecimalMaxExclusive;
     @Nonnull
     @Negative
     private Integer testNegative;
