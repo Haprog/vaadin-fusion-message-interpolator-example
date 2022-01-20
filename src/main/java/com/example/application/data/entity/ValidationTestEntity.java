@@ -46,15 +46,6 @@ public class ValidationTestEntity extends AbstractEntity {
     @Nonnull
     @Size(min = 6, message = "{com.example.my.size.constraint.min}")
     private String minLengthCustomMessage;
-    @Nonnull
-    @NotBlank
-    private String notBlankString;
-    @Nonnull
-    @NotEmpty
-    private String notEmptyString;
-    @Nonnull
-    @Email
-    private String email;
 
     @Null
     private String testNull;

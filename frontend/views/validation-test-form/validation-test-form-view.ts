@@ -40,10 +40,7 @@ export class ValidationTestFormView extends View {
         <vaadin-text-field label="Min max length custom message" ${field(this.binder.model.minMaxLengthCustomMessage)}></vaadin-text-field>
         <vaadin-text-field label="Min max length custom message 2" ${field(this.binder.model.minMaxLengthCustomMessage2)}></vaadin-text-field>
         <vaadin-text-field label="Min length custom message" ${field(this.binder.model.minLengthCustomMessage)}></vaadin-text-field>
-        <vaadin-text-field label="Not blank string" ${field(this.binder.model.notBlankString)}></vaadin-text-field>
-        <vaadin-text-field label="Not empty string" ${field(this.binder.model.notEmptyString)}></vaadin-text-field>
-        <vaadin-email-field label="Email address" ${field(this.binder.model.email)}></vaadin-email-field>
-
+        
         <h4>Simple test to see error message for every type of built in validator</h4>
         <vaadin-text-field label="testNull" ${field(this.binder.model.testNull)}></vaadin-text-field>
         <vaadin-text-field label="testNotNull" ${field(this.binder.model.testNotNull)}></vaadin-text-field>
