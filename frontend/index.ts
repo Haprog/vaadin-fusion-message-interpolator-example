@@ -1,29 +1,54 @@
-import { Binder } from '@vaadin/form';
+import { Binder, Validator } from '@vaadin/form';
+import * as Validators from '@vaadin/form/Validators';
 import { Router } from '@vaadin/router';
+import { get, registerTranslateConfig, use, lookup } from 'lit-translate';
+import type { Values } from 'lit-translate';
 import { routes } from './routes';
 import { appStore } from './stores/app-store';
-import { MessageInterpolator } from './localization';
 
-MessageInterpolator.setMessages(new Map<string | RegExp, string>([
-  [
-    '{javax.validation.constraints.Size.message}',
-    'Merkkijonon pituus ei kelpaa. Literal \\{error}.', // escape {error} to show it literally instead of interpolating to undefined
-  ],
-  ['{com.example.my.size.constraint}', 'Merkkijonon pituuden tulee olla vähintään {min} ja enintään {max} merkkiä, oli {size} merkkiä.'],
-  ['{com.example.my.size.constraint.min}', 'Merkkijonon pituuden tulee olla vähintään {min}'],
-  ['must not be blank', 'ei saa olla tyhjä'],
-  ['must not be empty', 'ei saa olla tyhjä'],
-  [
-    /size must be between (?<min>.+) and (?<max>.+)/, // named capturing groups
-    'Merkkijonon pituuden tulee olla väliltä {min} - {max}, oli {size}',
-  ],
-  [
-    /size must be between (.+) and (.+)/, // unnamed capturing groups
-    'Merkkijonon pituuden tulee olla väliltä {1} - {2}, oli {size}',
-  ],
-]));
+// Configure lit-translate
+const translateConfig = registerTranslateConfig({
+  loader: lang => fetch(`/i18n/${lang}.json`).then(res => res.json()),
+  lookup: (key, config) => {
+    if (config.strings && typeof config.strings[key] === 'string') {
+      return config.strings[key] as string;
+    }
+    return lookup(key, config);
+  }
+});
+use('fi');
 
-Binder.interpolateMessageCallback = MessageInterpolator.callback;
+// Build a map from the Validators wildcard import
+const validatorToName = new Map<Validator<any>, string>(
+  Object.entries(Validators).map(([id, v]) => [v.prototype, id])
+);
+
+function getValidatorName(validator: Validator<any>) {
+  return validatorToName.get(Object.getPrototypeOf(validator)) || validator.constructor.name;
+}
+
+function getMessagePropertyId(validator: Validator<any>) {
+  return `validationError.${getValidatorName(validator)}`;
+}
+
+Binder.interpolateMessageCallback = (message, validator, binderNode) => {
+  // Use the validator instance properties as values for variable interpolation
+  const values = validator as unknown as Values;
+
+  // Try to find translation for the message (in case of custom message provided from Java annotation)
+  if (translateConfig.lookup(message, translateConfig)) {
+    return get(message, values);
+  }
+
+  // Try to find a default translation for the specific type of validator
+  const messagePropertyId = getMessagePropertyId(validator);
+  if (translateConfig.lookup(messagePropertyId, translateConfig)) {
+    return get(messagePropertyId, values);
+  }
+
+  // Fall back to original message if no translations are found
+  return message;
+};
 
 export const router = new Router(document.querySelector('#outlet'));
 

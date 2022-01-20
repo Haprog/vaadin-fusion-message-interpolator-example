@@ -1,0 +1,6 @@
+{
+  "validationError": {},
+  "{javax.validation.constraints.Size.message}": "custom message {{ min }} - {{ max }}",
+  "{com.example.my.size.constraint}": "custom message 2",
+  "{com.example.my.size.constraint.min}": "length must be at least {{ min }}"
+}

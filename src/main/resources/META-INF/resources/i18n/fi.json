@@ -1,0 +1,33 @@
+{
+  "validationError": {
+    "AssertFalse": "täytyy olla epätosi",
+    "AssertTrue": "täytyy olla tosi",
+    "DecimalMax": {
+      "inclusive": "täytyy olla pienempi tai yhtä suuri kuin {{ value }}",
+      "exclusive": "täytyy olla pienempi kuin {{ value }}"
+    },
+    "DecimalMin": {
+      "inclusive": "täytyy olla suurempi tai yhtä suuri kuin {{ value }}",
+      "exclusive": "täytyy olla suurempi kuin {{ value }}"
+    },
+    "Digits": "numero ei täsmää rajoituksiin (<{{ integer }} numeroa>.<{{ fraction }} numeroa> odotettu)",
+    "Email": "täytyy olla kelvollinen sähköpostiosoite",
+    "Future": "täytyy olla tuleva päivämäärä",
+    "Max": "täytyy olla pienempi tai yhtä suuri kuin {{ value }}",
+    "Min": "täytyy olla suurempi tai yhtä suuri kuin {{ value }}",
+    "Negative": "täytyy olla pienempi kuin 0",
+    "NegativeOrZero": "täytyy olla pienempi tai yhtä suuri kuin 0",
+    "NotBlank": "ei saa olla tyhjä",
+    "NotEmpty": "ei saa olla tyhjä",
+    "NotNull": "ei saa olla null",
+    "Null": "täytyy olla null",
+    "Past": "täytyy olla menneisyyden päivämäärä",
+    "Pattern": "täytyy täsmätä seuraavaan säännölliseen lausekkeeseen (regexp): {{ regexp }}",
+    "Positive": "täytyy olla suurempi kuin 0",
+    "PositiveOrZero": "täytyy olla suurempi tai yhtä suuri kuin 0",
+    "Size": "pituuden täytyy olla {{ min }} ja {{ max }} väliltä"
+  },
+  "{javax.validation.constraints.Size.message}": "custom message {{ min }} - {{ max }}",
+  "{com.example.my.size.constraint}": "custom message 2",
+  "{com.example.my.size.constraint.min}": "pituuden täytyy olla vähintään {{ min }}"
+}
