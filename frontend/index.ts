@@ -10,9 +10,11 @@ import { appStore } from './stores/app-store';
 const translateConfig = registerTranslateConfig({
   loader: lang => fetch(`/i18n/${lang}.json`).then(res => res.json()),
   lookup: (key, config) => {
+    // First check for root level property including periods/dots in the key
     if (config.strings && typeof config.strings[key] === 'string') {
       return config.strings[key] as string;
     }
+    // Fall back to default implementation
     return lookup(key, config);
   }
 });
